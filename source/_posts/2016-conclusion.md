@@ -31,4 +31,6 @@ tags:
 ## 2017展望
 等待妹纸归来，等待升职加薪，另外，博客不能断！
 
-![斯坦福大学](http://7xnvrl.com1.z0.glb.clouddn.com/stanford-1.jpg)
+<div align=center>
+<img src="http://7xnvrl.com1.z0.glb.clouddn.com/stanford-1.jpg" width="350" height="450" alt="斯坦福大学"/>
+</div>
