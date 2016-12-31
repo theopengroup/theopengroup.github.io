@@ -66,6 +66,14 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: Tinnypp
+Plugins:
+- hexo-generator-feed
+
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
