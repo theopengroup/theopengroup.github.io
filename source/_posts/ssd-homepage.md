@@ -23,6 +23,7 @@ tags:
 | [Ucare](http://ucare.cs.uchicago.edu/) | [projects](http://ucare.cs.uchicago.edu/projects/) |
 | [Oscar](http://www.oscar.cs.stonybrook.edu/papers.php) | [BetrFs](http://www.betrfs.org/) |
 | [ESOS](http://esos.hanyang.ac.kr/?page_id=13187) | [Source](http://esos.hanyang.ac.kr/?page_id=13187) |
+| [Ziqi Fan](http://www-users.cs.umn.edu/~fan/) | [Source](https://github.com/ziqifan16) |
 
 ## 重点关注论文
 [石亮](http://www.cs.cqu.edu.cn/public/tindex/Y0078) [Group Website](http://cacs.cqu.edu.cn/shiliang)
@@ -39,10 +40,10 @@ tags:
 [nitin agrawal](http://pages.cs.wisc.edu/~nitina/) [github_simba](https://github.com/SimbaService/Simba) Design Tradeoffs for SSD Performance
 
 ## 重点关注会议
-FAST, MSST, DATE, HotStorage, DAC, ICCD, ASP-DAC, NVMSA, ATC(a lot of source codes)
+FAST, MSST, DATE, HotStorage, DAC, ICCD, ASP-DAC, NVMSA, ATC(a lot of source codes), Codes+ISSS
 
 ## 重点关注期刊
-TOS, VLSI, JSA
+TOS, VLSI, JSA, TPDS, TECS
 
 ## Tools
 [The Non-Volatile Memory Technology Database (NVMDB)](http://nvsl.ucsd.edu/index.php?path=projects/nvmdb)
