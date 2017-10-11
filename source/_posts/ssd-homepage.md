@@ -40,12 +40,13 @@ tags:
 [nitin agrawal](http://pages.cs.wisc.edu/~nitina/) [github_simba](https://github.com/SimbaService/Simba) Design Tradeoffs for SSD Performance
 [Hung-Wei Tseng](https://people.engr.ncsu.edu/htseng3/cv.html#publications)
 [吴非](http://cs.hust.edu.cn/info/1075/1085.htm)
+[camelab](http://camelab.org/pmwiki.php) hios
 
 ## 重点关注会议
 FAST, MSST, DATE, HotStorage, DAC, ICCD, ASP-DAC, NVMSA, ATC(a lot of source codes), Codes+ISSS
 
 ## 重点关注期刊
-TOS, VLSI, JSA, TPDS, TECS, TCAD, IEEE ACCESS
+TOS, VLSI, JSA, TPDS, TECS, TCAD, IEEE ACCESS, Future Generation Computer Systems
 
 ## Tools
 [The Non-Volatile Memory Technology Database (NVMDB)](http://nvsl.ucsd.edu/index.php?path=projects/nvmdb)
