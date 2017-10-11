@@ -26,7 +26,7 @@ tags:
 | [Ziqi Fan](http://www-users.cs.umn.edu/~fan/) | [Source](https://github.com/ziqifan16) |
 
 ## 重点关注论文
-[石亮](http://www.cs.cqu.edu.cn/public/tindex/Y0078) [Group Website](http://cacs.cqu.edu.cn/shiliang)
+[石亮](http://www.cs.cqu.edu.cn/info/1139/1297.htm)
 [Zhang Tong](https://www.ecse.rpi.edu/homepages/tzhang/)
 [Zhengyu Yang](http://nucsrl.coe.neu.edu/?q=yangzhengyu) [github](https://github.com/yangzy1988)
 [Yu Hua](http://stlab.wnlo.hust.edu.cn/csyhua/) [github1](https://github.com/syy804123097) [github2](https://github.com/Pfzuo)
