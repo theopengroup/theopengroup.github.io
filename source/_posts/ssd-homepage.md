@@ -38,12 +38,14 @@ tags:
 [Youyou Lu](http://storage.cs.tsinghua.edu.cn/~lu/) file system
 [Havard SEAS](http://stratos.seas.harvard.edu/publications)
 [nitin agrawal](http://pages.cs.wisc.edu/~nitina/) [github_simba](https://github.com/SimbaService/Simba) Design Tradeoffs for SSD Performance
+[Hung-Wei Tseng](https://people.engr.ncsu.edu/htseng3/cv.html#publications)
+[吴非](http://cs.hust.edu.cn/info/1075/1085.htm)
 
 ## 重点关注会议
 FAST, MSST, DATE, HotStorage, DAC, ICCD, ASP-DAC, NVMSA, ATC(a lot of source codes), Codes+ISSS
 
 ## 重点关注期刊
-TOS, VLSI, JSA, TPDS, TECS
+TOS, VLSI, JSA, TPDS, TECS, TCAD, IEEE ACCESS
 
 ## Tools
 [The Non-Volatile Memory Technology Database (NVMDB)](http://nvsl.ucsd.edu/index.php?path=projects/nvmdb)
