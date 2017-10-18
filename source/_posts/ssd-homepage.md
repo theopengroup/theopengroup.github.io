@@ -25,6 +25,8 @@ tags:
 | [ESOS](http://esos.hanyang.ac.kr/?page_id=13187) | [Source](http://esos.hanyang.ac.kr/?page_id=13187) |
 | [Ziqi Fan](http://www-users.cs.umn.edu/~fan/) | [Source](https://github.com/ziqifan16) |
 | [Popper](http://falsifiable.us/pubs/) | 像devops一样管理科研 支持！[可编程存储](https://github.com/michaelsevilla/malacology-popper) |
+| [capra](https://capra.cs.cornell.edu/) | [Source](https://github.com/cucapra) camera pipeline |
+| [DISTRIBUTED COMPUTING LPD](hhttp://lpd.epfl.ch/site/) | [Source](https://github.com/LPD-EPFL) |
 
 ## 重点关注论文
 [石亮](http://www.cs.cqu.edu.cn/info/1139/1297.htm)
