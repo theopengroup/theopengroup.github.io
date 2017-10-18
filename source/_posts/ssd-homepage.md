@@ -24,6 +24,7 @@ tags:
 | [Oscar](http://www.oscar.cs.stonybrook.edu/papers.php) | [BetrFs](http://www.betrfs.org/) |
 | [ESOS](http://esos.hanyang.ac.kr/?page_id=13187) | [Source](http://esos.hanyang.ac.kr/?page_id=13187) |
 | [Ziqi Fan](http://www-users.cs.umn.edu/~fan/) | [Source](https://github.com/ziqifan16) |
+| [Popper](http://falsifiable.us/pubs/) | 像devops一样管理科研 支持！[可编程存储](https://github.com/michaelsevilla/malacology-popper) |
 
 ## 重点关注论文
 [石亮](http://www.cs.cqu.edu.cn/info/1139/1297.htm)
@@ -41,6 +42,7 @@ tags:
 [Hung-Wei Tseng](https://people.engr.ncsu.edu/htseng3/cv.html#publications)
 [吴非](http://cs.hust.edu.cn/info/1075/1085.htm)
 [camelab](http://camelab.org/pmwiki.php) hios
+[jian huang](https://www.cc.gatech.edu/~jhuang95/)
 
 ## 重点关注会议
 FAST, MSST, DATE, HotStorage, DAC, ICCD, ASP-DAC, NVMSA, ATC(a lot of source codes), Codes+ISSS
