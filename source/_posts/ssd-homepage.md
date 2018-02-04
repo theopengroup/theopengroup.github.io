@@ -20,13 +20,16 @@ tags:
 | [George](http://www.cs.toronto.edu/~gamvrosi/) | Opportunistic Storage Maintenance [github](https://github.com/gamvrosi/duet) |
 | [Philippe](http://www.itu.dk/people/phbo/#research) | [nivdavan](http://nivdayan.github.io/) [github1](https://github.com/nivdayan) [github2](https://github.com/ClydeProjects) |
 | [Patrick P. C. Lee](http://www.cse.cuhk.edu.hk/~pclee/www/index.html) | many! |
-| [Ucare](http://ucare.cs.uchicago.edu/) | [projects](http://ucare.cs.uchicago.edu/projects/) |
+| [Ucare](http://ucare.cs.uchicago.edu/) | [projects](http://ucare.cs.uchicago.edu/projects/) [github](https://github.com/ucare-uchicago) flash emulator|
 | [Oscar](http://www.oscar.cs.stonybrook.edu/papers.php) | [BetrFs](http://www.betrfs.org/) |
 | [ESOS](http://esos.hanyang.ac.kr/?page_id=13187) | [Source](http://esos.hanyang.ac.kr/?page_id=13187) |
 | [Ziqi Fan](http://www-users.cs.umn.edu/~fan/) | [Source](https://github.com/ziqifan16) |
 | [Popper](http://falsifiable.us/pubs/) | 像devops一样管理科研 支持！[可编程存储](https://github.com/michaelsevilla/malacology-popper) |
 | [capra](https://capra.cs.cornell.edu/) | [Source](https://github.com/cucapra) camera pipeline |
 | [DISTRIBUTED COMPUTING LPD](hhttp://lpd.epfl.ch/site/) | [Source](https://github.com/LPD-EPFL) |
+| [initialdlab](http://datagroup.cs.utah.edu/initialdlab/conference.htm) | [Source](https://github.com/InitialDLab/) [Zhao Chang](http://www.cs.utah.edu/~zchang/research.html)安全、隐私相关研究|
+| [SystemGroupETH](https://www.systems.ethz.ch/) | Onur换了个实验室 |
+| [CGCL-codes](https://github.com/CGCL-codes) | [http://grid.hust.edu.cn/](http://grid.hust.edu.cn/) |
 
 ## 重点关注论文
 [石亮](http://www.cs.cqu.edu.cn/info/1139/1297.htm)
@@ -38,13 +41,20 @@ tags:
 [Cristian Borcea](http://cs.njit.edu/~borcea/) Mobile, interesting!
 [Korea Group](https://sites.google.com/site/oslabcbnu/research)
 [Benny Van Houdt](http://win.uantwerpen.be/~vanhoudt/) 偏数学，偏理论
-[Youyou Lu](http://storage.cs.tsinghua.edu.cn/~lu/) file system
+[Youyou Lu](http://storage.cs.tsinghua.edu.cn/~lu/) file system [octopus](https://github.com/thustorage/octopus)
 [Havard SEAS](http://stratos.seas.harvard.edu/publications)
 [nitin agrawal](http://pages.cs.wisc.edu/~nitina/) [github_simba](https://github.com/SimbaService/Simba) Design Tradeoffs for SSD Performance
 [Hung-Wei Tseng](https://people.engr.ncsu.edu/htseng3/cv.html#publications)
 [吴非](http://cs.hust.edu.cn/info/1075/1085.htm)
 [camelab](http://camelab.org/pmwiki.php) hios
 [jian huang](https://www.cc.gatech.edu/~jhuang95/)
+[i-acoma](http://iacoma.cs.uiuc.edu/index.html)
+[Lizhong Chen](http://web.engr.oregonstate.edu/~chenliz/)
+[Gunjae Koo](https://gunjae.wordpress.com/about/publications/) [Summarizer: near data processing framework](https://github.com/USC-sciplab/Summarizer)
+[SANG-HOON KIM](http://www.ssrg.ece.vt.edu/~sanghoon/)
+[yixinluo](https://www.cs.cmu.edu/~yixinluo/)
+[Jishen Zhao](https://users.soe.ucsc.edu/~jzhao/index.html)
+[asampson](https://www.cs.cornell.edu/~asampson/)
 
 ## 重点关注会议
 FAST, MSST, DATE, HotStorage, DAC, ICCD, ASP-DAC, NVMSA, ATC(a lot of source codes), Codes+ISSS
