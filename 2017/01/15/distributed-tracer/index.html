@@ -1,0 +1,368 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>分布式追踪系统行业对比 | theopengroup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="huangjhsx">
+    
+    <meta name="description" content="分布式追踪系统在微服务架构中有着非常重要的地位。">
+    
+    
+    
+    
+    <link rel="alternative" href="/atom.xml" title="theopengroup" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/Tinny.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/Tinny.jpg">
+    
+
+  
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    
+  
+  <link href="http://cdn.bootcss.com/highlight.js/8.2/styles/railscasts.min.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','N2Bjkzjf6Vty1A5ZcTqG','2.0.0');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="theopengroup">theopengroup</a></h1>
+				<h2 class="blog-motto">a coder likes reading papers</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/01/15/distributed-tracer/" title="分布式追踪系统行业对比" itemprop="url">分布式追踪系统行业对比</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2017-01-15T14:23:11.000Z" itemprop="datePublished">2017年01月15日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ZipKin"><span class="toc-number">1.</span> <span class="toc-text">ZipKin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#鹰眼"><span class="toc-number">2.</span> <span class="toc-text">鹰眼</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SKY-WALKING"><span class="toc-number">3.</span> <span class="toc-text">SKY-WALKING</span></a></li></ol>
+		</div>
+		
+		<blockquote>
+<p>分布式追踪系统在微服务架构中有着非常重要的地位。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="ZipKin"><a href="#ZipKin" class="headerlink" title="ZipKin"></a>ZipKin</h2><p>Zipkin是由Twitter 公司开发贡献的开源的分布式实时数据追踪系统，应用较为广泛。与之配合使用的另一个重要开源组件是Brave，提供了面向 Standard Servlet、Spring MVC、Http Client、JAXRS、Jersey、Resteasy 和 MySQL 等接口的跟踪信息埋点，可以通过编写简单的配置和代码，让基于这些框架构建的应用可以向 Zipkin报告数据。</p>
+<p>Zipkin目前只是展示调用链，并没有做进一步的统计分析，功能相对比较原生，其优势在于通用性强，积极跟进OpenTracing的标准，可以与spring cloud方便地集成。</p>
+<h2 id="鹰眼"><a href="#鹰眼" class="headerlink" title="鹰眼"></a>鹰眼</h2><p>鹰眼是由淘宝于2013年上线的分布式跟踪系统，是目前业内功能最完善的跟踪系统，不仅接入了大部分中间件（前端请求接入，分布式session，远程服务框架，异步消息通讯, 分库分表，分布式缓存，分布式文件系统等等），也提供了路由分布、QPS、调用次数、服务依赖度、平均耗时等统计分析功能，为后续的系统优化提供参考。</p>
+<p><img src="http://7xnvrl.com1.z0.glb.clouddn.com/yingyan.png" alt="图1"><br><img src="http://7xnvrl.com1.z0.glb.clouddn.com/yingyan2.png" alt="图2"></p>
+<p>目前，国内其它公司的跟踪系统如下（超链接是对应的详细介绍）：</p>
+<blockquote>
+<p>京东的Hydra：与dubbo框架集成，开源，不维护；</p>
+<p>唯品会的<a href="http://weibo.com/ttarticle/p/show?id=2309404006474413149166" target="_blank" rel="noopener">Microscope</a>：规划合理的一整套监控方案；</p>
+<p>窝窝网的<a href="http://zhengyun-ustc.iteye.com/blog/2167052" target="_blank" rel="noopener">Tracing</a>：系统中文名也叫鹰眼；</p>
+<p>新浪的<a href="http://www.infoq.com/cn/articles/weibo-watchman" target="_blank" rel="noopener">Watchman</a>：无特色；</p>
+<p>美团的<a href="http://tech.meituan.com/mt-mtrace.html" target="_blank" rel="noopener">MTrace</a>：功能比较完善，未来有望开源；</p>
+<p>点评的<a href="http://tech.meituan.com/CAT_in_Depth_Java_Application_Monitoring.html" target="_blank" rel="noopener">Cat</a>：参考eBay的CAL，部分开源，几乎不维护；</p>
+</blockquote>
+<p>它们技术上各有千秋，功能上都没有做更多的创新。我们的跟踪系统在统计分析的功能上也有在借鉴鹰眼，但目前统计分析功能的利用率不高，个人觉得需要根据统计的结果推进服务质量的提升，才能提高统计功能的利用率。</p>
+<h2 id="SKY-WALKING"><a href="#SKY-WALKING" class="headerlink" title="SKY-WALKING"></a>SKY-WALKING</h2><p>SKY-WALKING是一个由国人开发者开源的全链路监控追踪系统，目前维护较为活跃，支持很不错，点赞！他也是积极参与了opentracing标准的制定，文档翻译地址，也看到他推进其它开源组件遵从这个标准。下图是weibo开源的motan rpc框架。<br><img src="http://7xnvrl.com1.z0.glb.clouddn.com/skywalking.png" alt="图3"></p>
+<p>下图是sky-walking的进展情况，可借鉴有意义的功能是“邮件报警”以及“通过log4j扩展在日志中快速展现trace id”。</p>
+<p>目前我们的跟踪系统使用率较低，通过跟踪系统的调用链只能看到来源、去向和时间等信息，如果想进一步调试问题，需要去翻日志，如果此时日志里带有traceid，可以更快地把相关日志都找到。<br><img src="http://7xnvrl.com1.z0.glb.clouddn.com/skywalking2.png" alt="图4"></p>
+<p>同样，目前只有在服务向调用者抛异常时，邮件报警的日志内容会带有trace id，在业务中打的error日志并没有trace id，因此也降低了跟踪系统的使用率。下图是sky-walking的报警截图。<br><img src="http://7xnvrl.com1.z0.glb.clouddn.com/skywalking3.png" alt="图5"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/java/">java</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://theopengroup.github.io/2017/01/15/distributed-tracer/" data-title="分布式追踪系统行业对比 | theopengroup" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/06/05/jar-conflict/" title="Jar包冲突治理">
+  <strong>新一篇:</strong><br/>
+  <span>
+  Jar包冲突治理</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/12/30/2016-conclusion/"  title="2016个人总结">
+ <strong>旧一篇:</strong><br/> 
+ <span>2016个人总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	
+	<div class="ds-thread" data-title="分布式追踪系统行业对比" data-thread-key="distributed-tracer" data-author-key="huangjhsx" data-url="http://theopengroup.github.io/2017/01/15/distributed-tracer/"></div>
+	
+</section>
+
+
+</div>  
+    </div>
+    <!--<footer><div id="footer" >
+</div></footer>-->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"theopengroup"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '/js/embed.js';    //change to ds.src = '/js/embed.js'; to add useragent for duoshuo
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89644337-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>

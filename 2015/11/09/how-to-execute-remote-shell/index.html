@@ -1,0 +1,357 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>如何在多台Linux服务器间自动远程执行各种命令 | theopengroup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="huangjhsx">
+    
+    <meta name="description" content="应用分布在多台服务器上在带来高可用性的同时，也给软件开发测试人员带来了些许难题，根据错误分析日志、执行脚本等操作往往需要依次登录各个服务器才能完成，如果能够在自己的开发环境上自动登录多台服务器并执行命令或脚本、上传下载文件，将会提高工作效率。">
+    
+    
+    
+    
+    <link rel="alternative" href="/atom.xml" title="theopengroup" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/Tinny.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/Tinny.jpg">
+    
+
+  
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    
+  
+  <link href="http://cdn.bootcss.com/highlight.js/8.2/styles/railscasts.min.css" rel="stylesheet">
+  <script src="http://cdn.bootcss.com/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d182ed77fc48758bf45a33835ee35745";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','N2Bjkzjf6Vty1A5ZcTqG','2.0.0');
+</script>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="theopengroup">theopengroup</a></h1>
+				<h2 class="blog-motto">a coder likes reading papers</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+                    <ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于我</a></li>
+					
+					<li>
+					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" class="st-default-search-input" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+                <!--<li><div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div></li>-->
+
+				</ul>
+			</nav>	
+</div>
+    </header>
+    <div id="container" class="clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/09/how-to-execute-remote-shell/" title="如何在多台Linux服务器间自动远程执行各种命令" itemprop="url">如何在多台Linux服务器间自动远程执行各种命令</a>
+  </h1>
+  <p class="article-time">
+    <time datetime="2015-11-09T02:55:36.000Z" itemprop="datePublished">2015年11月9日</time>
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title"></strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux开发者"><span class="toc-number">1.</span> <span class="toc-text">Linux开发者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java开发者"><span class="toc-number">2.</span> <span class="toc-text">Java开发者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python开发者"><span class="toc-number">3.</span> <span class="toc-text">Python开发者</span></a></li></ol>
+		</div>
+		
+		<blockquote>
+<p>应用分布在多台服务器上在带来高可用性的同时，也给软件开发测试人员带来了些许难题，根据错误分析日志、执行脚本等操作往往需要依次登录各个服务器才能完成，如果能够在自己的开发环境上自动登录多台服务器并执行命令或脚本、上传下载文件，将会提高工作效率。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Linux开发者"><a href="#Linux开发者" class="headerlink" title="Linux开发者"></a>Linux开发者</h2><p>利用expect脚本实现自动地和交互式任务进行通信</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#告诉操作系统脚本里的代码使用哪一个shell来执行</span></span><br><span class="line"><span class="comment">#!/usr/bin/expect -f </span></span><br><span class="line"><span class="built_in">set</span> port 22</span><br><span class="line"><span class="built_in">set</span> user root</span><br><span class="line"><span class="built_in">set</span> host 192.168.28.30</span><br><span class="line"><span class="built_in">set</span> password root</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置超时时间，单位秒  </span></span><br><span class="line"><span class="built_in">set</span> timeout -1 </span><br><span class="line"><span class="comment">#spawn是进入expect环境后才可以执行的expect内部命令                        </span></span><br><span class="line">spawn ssh -D <span class="variable">$port</span> <span class="variable">$user</span>@<span class="variable">$host</span> <span class="string">"ifconfig"</span> </span><br><span class="line"><span class="comment">#根据提示自动发送yes和密码 </span></span><br><span class="line">expect &#123;                                   </span><br><span class="line"><span class="string">"*yes/no"</span> &#123; send <span class="string">"yes\r"</span>; exp_continue&#125;</span><br><span class="line"><span class="string">"*password:"</span> &#123; send <span class="string">"<span class="variable">$password</span>\r"</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line">expect <span class="string">"*#*"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#远程执行命令</span></span><br><span class="line">send <span class="string">"ifconfig &gt; /home/cfg \r"</span>             </span><br><span class="line">send <span class="string">"exit\r"</span></span><br><span class="line">interact</span><br><span class="line">spawn scp <span class="variable">$host</span>:/home/cfg ./</span><br><span class="line">expect &#123;</span><br><span class="line"><span class="string">"*yes/no"</span> &#123; send <span class="string">"yes\r"</span>; exp_continue&#125;</span><br><span class="line"><span class="string">"*assword:"</span> &#123; send <span class="string">"<span class="variable">$password</span>\r"</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line">expect eof</span><br></pre></td></tr></table></figure>
+<h2 id="Java开发者"><a href="#Java开发者" class="headerlink" title="Java开发者"></a>Java开发者</h2><p>使用基于Java的远程执行类库<a href="http://www.ibm.com/developerworks/cn/linux/1412_baoxh_java/index.html" target="_blank" rel="noopener">SSHxcute</a> </p>
+<blockquote>
+<p>貌似只能发送一次命令，所以可以用&amp;&amp;把几条命令连接起来。</p>
+</blockquote>
+<h2 id="Python开发者"><a href="#Python开发者" class="headerlink" title="Python开发者"></a>Python开发者</h2><p><a href="http://pythonpeixun.blog.51cto.com/7195558/1213929" target="_blank" rel="noopener">paramiko</a>是用python语言写的一个模块，遵循SSH2协议，支持以加密和认证的方式，进行远程服务器的连接。<br>使用paramiko可以很好的解决以下问题：1、使用windows客户端；2、远程连接到Linux服务器，查看上面的日志状态，批量配置远程服务器，文件上传，文件下载等。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Shell/">Shell</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://theopengroup.github.io/2015/11/09/how-to-execute-remote-shell/" data-title="如何在多台Linux服务器间自动远程执行各种命令 | theopengroup" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/02/05/ssd-homepage/" title="有用的SSD研究相关的主页">
+  <strong>新一篇:</strong><br/>
+  <span>
+  有用的SSD研究相关的主页</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/11/02/how-to-write-research-statement/"  title="Research Statement怎么写？">
+ <strong>旧一篇:</strong><br/> 
+ <span>Research Statement怎么写？
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	
+	<div class="ds-thread" data-title="如何在多台Linux服务器间自动远程执行各种命令" data-thread-key="how-to-execute-remote-shell" data-author-key="huangjhsx" data-url="http://theopengroup.github.io/2015/11/09/how-to-execute-remote-shell/"></div>
+	
+</section>
+
+
+</div>  
+    </div>
+    <!--<footer><div id="footer" >
+</div></footer>-->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  //back to top
+  function backToTop(){
+    var buttonHTML = $("<a href=\"#top\" id=\"back-top\">" + "<span>Back to Top</span></a>");
+    buttonHTML.appendTo($("body"));
+    var buttonToTop = $("#back-top");
+    // hide #back-top first
+    buttonToTop.hide();
+
+    // fade in #back-top
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                buttonToTop.fadeIn();
+            } else {
+                buttonToTop.fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        buttonToTop.click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+  }
+  backToTop();
+
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      ta = $('#toc.toc-aside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+        
+    }
+  });
+
+  var show = true;
+  c.click(function(){
+    if(show == true){
+        a.addClass('fadeOut').css('display', 'none');
+        ta.css('display', 'block').addClass('fadeIn');
+        m.addClass('moveMain');  
+    }else{
+        a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');     
+        ta.css('display', 'none'); 
+        m.removeClass('moveMain');
+        $('#toc.toc-aside').css('display', 'none');
+    }
+    show = !show;
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,240-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"theopengroup"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '/js/embed.js';    //change to ds.src = '/js/embed.js'; to add useragent for duoshuo
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-89644337-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+</html>
