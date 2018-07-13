@@ -29,13 +29,15 @@ tags:
 | [DISTRIBUTED COMPUTING LPD](hhttp://lpd.epfl.ch/site/) | [Source](https://github.com/LPD-EPFL) |
 | [initialdlab](http://datagroup.cs.utah.edu/initialdlab/conference.htm) | [Source](https://github.com/InitialDLab/) [Zhao Chang](http://www.cs.utah.edu/~zchang/research.html)安全、隐私相关研究|
 | [SystemGroupETH](https://www.systems.ethz.ch/) | Onur换了个实验室 |
-| [CGCL-codes](https://github.com/CGCL-codes) | [http://grid.hust.edu.cn/](http://grid.hust.edu.cn/) |
+| [CGCL-codes](https://github.com/CGCL-codes) | [http://grid.hust.edu.cn/](http://grid.hust.edu.cn/) [Xuanhua Shi](http://grid.hust.edu.cn/xhshi/)|
+| [Pramod Bhatotia](http://homepages.inf.ed.ac.uk/pbhatoti/publications.html) | [streamapprox](https://streamapprox.github.io/) |
+
 
 ## 重点关注论文
 [石亮](http://www.cs.cqu.edu.cn/info/1139/1297.htm)
 [Zhang Tong](https://www.ecse.rpi.edu/homepages/tzhang/)
 [Zhengyu Yang](http://nucsrl.coe.neu.edu/?q=yangzhengyu) [github](https://github.com/yangzy1988)
-[Yu Hua](http://stlab.wnlo.hust.edu.cn/csyhua/) [github1](https://github.com/syy804123097) [github2](https://github.com/Pfzuo)
+[Yu Hua](https://csyhua.github.io/csyhua/index.html) [Fangming Liu](http://grid.hust.edu.cn/fmliu/) [github1](https://github.com/syy804123097) [github2](https://github.com/Pfzuo)
 [Peter Desnoyers](http://www.ccs.neu.edu/home/pjd/) 极其nice的导师，指导很耐心！
 [Feng Chen](http://www.csc.lsu.edu/~fchen/)
 [Cristian Borcea](http://cs.njit.edu/~borcea/) Mobile, interesting!
@@ -55,6 +57,7 @@ tags:
 [yixinluo](https://www.cs.cmu.edu/~yixinluo/)
 [Jishen Zhao](https://users.soe.ucsc.edu/~jzhao/index.html)
 [asampson](https://www.cs.cornell.edu/~asampson/)
+[ASTL](http://astl.xmu.edu.cn/publications.html)
 
 ## 重点关注会议
 FAST, MSST, DATE, HotStorage, DAC, ICCD, ASP-DAC, NVMSA, ATC(a lot of source codes), Codes+ISSS
